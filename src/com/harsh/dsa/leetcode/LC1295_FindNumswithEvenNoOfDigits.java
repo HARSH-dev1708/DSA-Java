@@ -1,5 +1,11 @@
 package com.harsh.dsa.leetcode;
-
+/*
+ * LeetCode 1295 - Find Numbers with Even Number of Digits
+ *
+ * Difficulty       : Easy
+ *
+ * Date Solved      : 08-07-2026
+ */
 public class LC1295_FindNumswithEvenNoOfDigits {
     public static void main(String[] args) {
         int[] a = {12,345,2,6,7896};
