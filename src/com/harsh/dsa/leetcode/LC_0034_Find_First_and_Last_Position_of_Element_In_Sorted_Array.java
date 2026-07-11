@@ -2,7 +2,7 @@ package com.harsh.dsa.leetcode;
 /*
  * LeetCode 0034 - Find First and Last Position of Element in Sorted Array
  *
- * Difficulty       : Easy
+ * Difficulty       : Medium
  *  Time Complexity  : O(logn)
  * Space Complexity : O(1)
  *

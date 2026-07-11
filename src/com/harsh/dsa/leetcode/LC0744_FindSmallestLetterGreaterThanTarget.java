@@ -2,7 +2,7 @@ package com.harsh.dsa.leetcode;
 /*
  * LeetCode 744 - Find Smallest Letter Greater Than Target
  *
- * Difficulty       : Easy
+ * Difficulty       : Medium
  * Algorithm        : Binary Search
  * Time Complexity  : O(logn)
  * Space Complexity : O(1)
