@@ -8,7 +8,7 @@ package com.harsh.dsa.leetcode;
  *
  * Date Solved      : 10-07-2026
  */
-public class LC_0034_Find_First_and_Last_Position_of_Element_In_Sorted_Array {
+public class LC0034_FindFirstandLastPositionofElementInSortedArray {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 4, 6, 7, 9};
         int target = 4;
