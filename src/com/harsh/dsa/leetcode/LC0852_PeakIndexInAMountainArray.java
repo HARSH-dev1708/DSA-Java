@@ -7,7 +7,7 @@ package com.harsh.dsa.leetcode;
  * Time Complexity  : O(logn)
  * Space Complexity : O(1)
  *
- * Date Solved      : 09-07-2026
+ * Date Solved      : 11-07-2026
  */
 public class LC0852_PeakIndexInAMountainArray {
     public static void main(String[] args) {
