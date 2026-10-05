@@ -12,13 +12,16 @@ package com.harsh.dsa.leetcode;
 public class LC0744_FindSmallestLetterGreaterThanTarget {
     public static void main(String[] args) {
         char[] letters = {'c','f','j'};
-        char target = 'f';
+        char target = 'k';
         char ceil = nextGreatestLetter(letters, target);
         System.out.println(ceil);
     }
     static char nextGreatestLetter(char[] letters, char target) {
         int start = 0;
         int end = letters.length - 1;
+        if(letters[end] <= target){
+            return letters[start];
+        }
         while(start <= end){
             int mid = start + (end - start) / 2;
             if(letters[mid] > target){
@@ -27,6 +30,7 @@ public class LC0744_FindSmallestLetterGreaterThanTarget {
                 start = mid + 1;
             }
         }
-        return letters[start % letters.length];
+//        return letters[start % letters.length];
+        return letters[start];
     }
 }
