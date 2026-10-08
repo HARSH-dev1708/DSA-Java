@@ -17,8 +17,11 @@ public class LC0033_SearchInRotatedSortedArray {
         if(pivot == -1){
             ans = binarySearch(nums, target, 0, nums.length-1);
         } else {
-            ans = binarySearch(nums, target, 0, pivot);
-            if(ans == -1){
+            if(nums[pivot] == target){
+                ans = pivot;
+            } else if (nums[0] <= target){
+                ans = binarySearch(nums, target, 0, pivot - 1);
+            } else {
                 ans = binarySearch(nums, target, pivot + 1, nums.length - 1);
             }
         }
