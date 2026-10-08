@@ -30,6 +30,8 @@ public class LC0033_SearchInRotatedSortedArray {
         while(start <= end){
             int mid = start + (end - start) / 2;
             if(mid  < end && nums[mid] > nums[mid + 1]){
+                // The cool thing about logical operator && is than if in (a && b), a is not true
+                // then b isn't even checked which saves from index out of bound error in this case
                 return mid;
             }
             if (mid > start && nums[mid] < nums[mid - 1]){
