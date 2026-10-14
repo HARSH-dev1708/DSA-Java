@@ -3,41 +3,29 @@ package com.harsh.dsa.leetcode;
  * LeetCode 0001 - Two Sum
  *
  * Difficulty       : Easy
- *  Time Complexity  : O(nlogn)
+ *  Time Complexity  : O(n)
  * Space Complexity : O(n)
- * Two Pointer approach
+ * Hash Map
  *
  * Date Solved      : 14-10-2026
  */
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class LC0001_TwoSum {
     public static void main(String[] args){
-        int[] nums = {2,7,11,13};
+        int[] nums = {11,13,7,2};
         int target = 9;
         System.out.println(Arrays.toString(twoSum(nums, target)));
     }
     static int[] twoSum(int[] nums, int target) {
-        int[][] numsWithIndex = new int[nums.length][2];
+        HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
-            numsWithIndex[i][0] = nums[i];
-            numsWithIndex[i][1] = i;
-        }
-
-        Arrays.sort(numsWithIndex, (a, b) -> Integer.compare(a[0], b[0]));
-
-        int st = 0;
-        int end = nums.length - 1;
-        while(st < end){
-            int sum = numsWithIndex[st][0] + numsWithIndex[end][0];
-            if(sum == target){
-                return new int[] {numsWithIndex[st][1], numsWithIndex[end][1]};
+            int diff = target - nums[i];
+            if(map.containsKey(diff)){
+                return new int[] {map.get(diff), i};
             }
-            if(sum > target){
-                end--;
-            } else {
-                st++;
-            }
+            map.put(nums[i], i);
         }
         return new int[] {-1, -1};
     }
