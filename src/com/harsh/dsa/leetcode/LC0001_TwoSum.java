@@ -5,6 +5,7 @@ package com.harsh.dsa.leetcode;
  * Difficulty       : Easy
  *  Time Complexity  : O(nlogn)
  * Space Complexity : O(n)
+ * Two Pointer approach
  *
  * Date Solved      : 14-10-2026
  */
