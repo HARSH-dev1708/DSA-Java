@@ -3,11 +3,11 @@ package com.harsh.dsa.leetcode;
  * LeetCode 441 - Arranging Coins
  *
  * Difficulty       : Easy
- * Algorithm        : Binary Search
- * Time Complexity  : O(logn)
+ * Algorithm        : Brute force
+ * Time Complexity  : O(n^(1/2))
  * Space Complexity : O(1)
  *
- * Date Solved      : 21-07-2026
+ * Date Solved      : 19-10-2026
  *
  * Note: Alternate solution is one line which is derived from quadratic formula - return (int)((Math.sqrt(1 + 8.0 * n) - 1) / 2);
  */
@@ -20,21 +20,16 @@ public class LC0441_ArrangingCoins {
         System.out.println(arrangeCoins(n));
     }
     static int arrangeCoins(int n) {
-        long left = 1, right = n;
-
-        while (left <= right) {
-            long mid = left + (right - left) / 2;
-            long coinsNeeded = mid * (mid + 1) / 2;
-
-            if (coinsNeeded == n) {
-                return (int) mid;
-            } else if (coinsNeeded < n) {
-                left = mid + 1;
+        int count = 0;
+        while(n > 0){
+            count++;
+            if(count <= n){
+                n -= count;
             } else {
-                right = mid - 1;
+                n = 0;
+                count--;
             }
         }
-
-        return (int) right; // right points to the largest valid k
+        return count;
     }
 }
