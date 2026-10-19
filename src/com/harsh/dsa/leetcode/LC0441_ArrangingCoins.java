@@ -9,7 +9,7 @@ package com.harsh.dsa.leetcode;
  *
  * Date Solved      : 19-10-2026
  *
- * Note: Alternate solution is one line which is derived from quadratic formula - return (int)((Math.sqrt(1 + 8.0 * n) - 1) / 2);
+ * Note: Alternate solution is one line which is derived from quadratic formula - return (int)((Math.sqrt(1 + 8.0 * n) - 1) / 2)
  */
 import java.util.Scanner;
 
