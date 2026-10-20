@@ -3,10 +3,11 @@ package com.harsh.dsa.leetcode;
  * LeetCode 74 - Search a 2D Matrix
  *
  * Difficulty       : Medium
- * Time Complexity  : O(m*n) where m = no. of rows and n = no. of columns
+ * Time Complexity  : O(log(m*n) where m = no. of rows and n = no. of columns
  * Space Complexity : O(1)
  *
  * Date Solved      : 18-07-2026
+ * Date Optimized   : 21-10-2026
  */
 public class LC0074_SearchA2DMatrix {
     public static void main(String[] args) {
@@ -19,16 +20,24 @@ public class LC0074_SearchA2DMatrix {
         System.out.println(target + " found = " + searchMatrix(matrix, target));
     }
     static boolean searchMatrix(int[][] matrix, int target) {
-        int row = 0;
-        int col = matrix[0].length - 1;
-        while(row <= matrix.length - 1 && col >= 0){
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int start = 0;
+        int end = rows * cols - 1;
+
+        while(start <= end){
+            int mid = start + (end - start) / 2;
+
+            int row = mid / cols;
+            int col = mid % cols;
+
             if(matrix[row][col] == target){
                 return true;
-            }
-            if(matrix[row][col] < target){
-                row++;
+            } else if(matrix[row][col] > target){
+                end = mid - 1;
             } else {
-                col--;
+                start = mid + 1;
             }
         }
         return false;
