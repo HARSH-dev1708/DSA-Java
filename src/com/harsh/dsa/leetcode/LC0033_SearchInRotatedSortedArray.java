@@ -31,6 +31,9 @@ public class LC0033_SearchInRotatedSortedArray {
         int start = 0;
         int end = nums.length - 1;
         while(start <= end){
+            if (nums[start] <= nums[end]) {
+                return end;
+            }
             int mid = start + (end - start) / 2;
             if(mid  < end && nums[mid] > nums[mid + 1]){
                 // The cool thing about logical operator && is than if in (a && b), a is not true
