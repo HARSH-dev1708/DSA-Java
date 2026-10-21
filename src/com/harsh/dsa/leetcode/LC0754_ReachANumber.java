@@ -10,6 +10,7 @@ package com.harsh.dsa.leetcode;
  * Date Solved      : 19-07-2026
  *
  * Note: Here you need to find the min no. of moves to reach the target
+ *
  */
 import java.util.Scanner;
 
@@ -20,6 +21,14 @@ public class LC0754_ReachANumber {
         System.out.println("The least no. of moves to reach " + num + " is = " + reachNumber(num));
     }
     static int reachNumber(int target) {
+
+        // The complete idea in three steps
+        // 1. Keep adding consecutive move lengths until your total distance reaches or exceeds the target.
+        // 2. Calculate the overshoot. If it's odd, add more move lengths until it becomes even.
+        // 3. Once the overshoot is even, some subset of the moves can be reversed to reduce the total by exactly that overshoot.
+        // this is because when evever we are reversing a stride we are losing n steps in right direction but also moving n steps in left direction so in total 2n moves is affected
+
+        // for example to reach 5 (1 + 2 + 3 + 4 - 5)
         target = Math.abs(target);
         int num = 0;
         int  numMoves = 0;
