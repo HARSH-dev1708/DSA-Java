@@ -13,15 +13,29 @@ package com.harsh.dsa.leetcode;
  * However, Java's Arrays.sort() for primitives uses a Dual-Pivot Quicksort under the hood,
  * which requires O(log M) auxiliary space for the recursion stack.
  *
+ * ------------------------------------
+ * Optimized Solution
+ * Time Complexity: O(N + M)
+ * Reason: We iterate through Alice's array (size N) and Bob's array (size M) to calculate
+ * the sums and populate the HashSet, which takes O(N + M). The final loop iterates through
+ * Alice's array up to N times, performing an O(1) HashSet lookup each time.
+ *
+ * Space Complexity: O(M)
+ * Reason: We are storing all the elements of Bob's array inside the HashSet. In the worst-case
+ * scenario (where all of Bob's candies are unique sizes), the set will grow to size M.
+ *
  * Date Solved      : 25-10-2026
  */
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LC0888_FairCandySwap {
     public static void main(String[] args) {
         int[] aliceSizes = {1, 2, 5};
         int[] bobSizes = {2, 4};
         System.out.println(Arrays.toString(fairCandySwap(aliceSizes, bobSizes)));
+        System.out.println(Arrays.toString(fairCandySwapOptimized(aliceSizes, bobSizes)));
 
     }
     static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
@@ -56,6 +70,34 @@ public class LC0888_FairCandySwap {
                 }
             }
         }
+        return new int[]{-1, -1};
+    }
+    static int[] fairCandySwapOptimized(int[] aliceSizes, int[] bobSizes) {
+        int a = 0;
+        int b = 0;
+
+        for (int c : aliceSizes) {
+            a += c;
+        }
+
+        // Load Bob's array into a HashSet for O(1) lookups
+        Set<Integer> bobSet = new HashSet<>();
+        for (int c : bobSizes) {
+            b += c;
+            bobSet.add(c);
+        }
+
+        int diff = (b - a) / 2;
+
+        for (int x : aliceSizes) {
+            int y = x + diff;
+
+            // If Bob has the candy 'y', we found our answer
+            if (bobSet.contains(y)) {
+                return new int[] {x, y};
+            }
+        }
+
         return new int[]{-1, -1};
     }
 }
